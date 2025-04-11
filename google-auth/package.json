@@ -1,16 +1,27 @@
 {
   "name": "google-auth",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "main": "index.ts",
+  "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "tsx dist/server.ts",
+    "dev": "tsx --watch src/server.ts"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "prisma": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }
