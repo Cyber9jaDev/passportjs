@@ -1,17 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { AuthService } from "../services/auth.service";
+import database from "../db";
 
+export const login = async (req: Request, res: Response, next:NextFunction) => {
+  const { email, password } = req.body;
 
-export class AuthController {
-  constructor( private readonly authService: AuthService ){}
+  const user = await database.user.findUnique({ where: { email } });
 
-  async login(req:Request, res:Response, next:NextFunction){
-    try {
-      const service = await this.authService.login();
-      res.status(201).json(service);
-    } catch (error) {
-      next(error);
-    }
-  }
 }
 

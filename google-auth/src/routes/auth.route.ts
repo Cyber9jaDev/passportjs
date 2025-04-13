@@ -1,13 +1,8 @@
 import express from "express";
-import { AuthController } from "../controllers/auth.controller";
-import { AuthService } from "../services/auth.service";
+import { login } from "../controllers/auth.controller";
 
 const AuthRoute = express.Router();
 
-const authService = new AuthService();
-const authController = new AuthController(authService);
-
-
-AuthRoute.route("/login").get(authController.login.bind(authController));
+AuthRoute.route("/login").post(login);
 
 export default AuthRoute;
