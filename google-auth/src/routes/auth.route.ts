@@ -1,8 +1,19 @@
 import express from "express";
 import { login } from "../controllers/auth.controller";
+import passport from "passport";
 
-const AuthRoute = express.Router();
+const router = express.Router();
 
-AuthRoute.route("/login").post(login);
 
-export default AuthRoute;
+
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
+
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+export default router;
