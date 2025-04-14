@@ -73,14 +73,14 @@ passport.use(
   )
 );
 
-passport.serializeUser(function (user, cb) {
-  process.nextTick(function () {
-    cb(null, { id: user.id,  firstName: user.firstName });
-  });
-});
+// passport.serializeUser(function (user, cb) {
+//   process.nextTick(function () {
+//     cb(null, { id: user.id,  firstName: user.firstName });
+//   });
+// });
 
-passport.deserializeUser(function (user, cb) {
-  process.nextTick(function () {
-    return cb(null, user);
-  });
-});
+// passport.deserializeUser(function (user, cb) {
+//   process.nextTick(function () {
+//     return cb(null, user);
+//   });
+// });
