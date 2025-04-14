@@ -31,11 +31,6 @@ passport.use(
           return done(new Error("No email provided by google"));
         }
 
-        // Check for existing user by Google ID first
-        const existingByGoogleId = await database.user.findUnique({
-          where: { googleId: profile.id },
-        });
-
         const existingUser = await database.user.findFirst({
           where: {
             OR: [{ email, googleId: profile.id }],
